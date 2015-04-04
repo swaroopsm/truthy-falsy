@@ -1,1 +1,0 @@
-{"None": "Falsy", "false": "Falsy", "whitespace": "Truthy", "empty_string": "Falsy", "{}": "Falsy", "zero": "Falsy", "[]": "Falsy", "true": "Truthy"}
