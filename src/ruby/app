@@ -2,23 +2,24 @@
 
 require 'json'
 
-truthy_falsy_values = [
-  true,
-  0,
-  "",
-  false,
-  nil,
-  [],
-  {}
-]
+truthy_falsy_values = {
+  "true": true,
+  "zero": 0,
+  "empty_string": "",
+  "whitespace": " ",
+  "false": false,
+  "nil": nil,
+  "[]": [],
+  "{}": {}
+}
 
 result = {}
 
-truthy_falsy_values.each do |value|
+truthy_falsy_values.each do |key, value|
   if value
-    result[value.to_s] = "Yes"
+    result[key] = "Truthy"
   else
-    result[value.to_s] = "No"
+    result[key] = "Falsy"
   end
 end
 

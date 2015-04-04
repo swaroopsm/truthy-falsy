@@ -1,25 +1,26 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 
 import os
 import json
 
-truthy_falsy_values = [
-  True,
-  0,
-  "",
-  False,
-  [],
-  {},
-  None
-]
+truthy_falsy_values = {
+  "true": True,
+  "zero": 0,
+  "empty_string": "",
+  "false": False,
+  "[]": [],
+  "{}": {},
+  "whitespace": " ",
+  "None": None
+}
 
 result = {}
 
-for val in truthy_falsy_values:
-  if val:
-    result[str(val)] = "Yes"
+for key in truthy_falsy_values:
+  if truthy_falsy_values[key]:
+    result[key] = "Truthy"
   else:
-    result[str(val)] = "No"
+    result[key] = "Falsy"
 
 result_file = open(os.path.join(os.path.dirname(__file__), 'result.json'), "w")
 result_file.write(json.dumps(result))

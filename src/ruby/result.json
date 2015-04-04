@@ -1,1 +1,1 @@
-{"true":"Yes","0":"Yes","":"No","false":"No","[]":"Yes","{}":"Yes"}
+{"true":"Truthy","zero":"Truthy","empty_string":"Truthy","whitespace":"Truthy","false":"Falsy","nil":"Falsy","[]":"Truthy","{}":"Truthy"}

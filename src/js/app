@@ -11,8 +11,9 @@ truthy_falsy_values = {
   "true": true,
   "[]": [],
   "{}": {},
-  "0": 0,
-  "": "",
+  "zero": 0,
+  "empty_string": "",
+  "whitespace": " ",
   "false": false,
   "null": null,
   "undefined": undefined,
@@ -24,10 +25,10 @@ for(var key in truthy_falsy_values) {
     var value = truthy_falsy_values[key];
 
     if(value) {
-      result[key] = "Yes";
+      result[key] = "Truthy";
     }
     else {
-      result[key] = "No";
+      result[key] = "Falsy";
     }
   }
 }
