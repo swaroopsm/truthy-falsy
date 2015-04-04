@@ -6,20 +6,28 @@ truthy_falsy_values = {
   "true": true,
   "zero": 0,
   "empty_string": "",
-  "whitespace": " ",
   "false": false,
-  "nil": nil,
   "[]": [],
-  "{}": {}
+  "{}": {},
+  "whitespace": " ",
+  "None": "-",
+  "null": "-",
+  "nil": nil,
+  "NaN": "-",
+  "undefined": "-"
 }
 
 result = {}
 
 truthy_falsy_values.each do |key, value|
-  if value
-    result[key] = "Truthy"
+  if value == "-"
+    result[key] = "-"
   else
-    result[key] = "Falsy"
+    if value
+      result[key] = "Truthy"
+    else
+      result[key] = "Falsy"
+    end
   end
 end
 

@@ -11,16 +11,24 @@ truthy_falsy_values = {
   "[]": [],
   "{}": {},
   "whitespace": " ",
-  "None": None
+  "None": None,
+  "null": "-",
+  "nil": "-",
+  "NaN": "-",
+  "undefined": "-"
 }
 
 result = {}
 
 for key in truthy_falsy_values:
-  if truthy_falsy_values[key]:
-    result[key] = "Truthy"
+  val = truthy_falsy_values[key]
+  if val == "-":
+      result[key] = "-"
   else:
-    result[key] = "Falsy"
+    if val:
+        result[key] = "Truthy"
+    else:
+        result[key] = "Falsy"
 
 result_file = open(os.path.join(os.path.dirname(__file__), 'result.json'), "w")
 result_file.write(json.dumps(result))
