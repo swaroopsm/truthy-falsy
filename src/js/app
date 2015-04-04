@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    path = require('path'),
+    truthy_falsy_values,
+    i, length,
+    result={},
+    result_filepath;
+
+truthy_falsy_values = {
+  "true": true,
+  "[]": [],
+  "{}": {},
+  "0": 0,
+  "": "",
+  "false": false,
+  "null": null,
+  "undefined": undefined,
+  "NaN": NaN
+};
+
+for(var key in truthy_falsy_values) {
+  if(truthy_falsy_values.hasOwnProperty(key)) {
+    var value = truthy_falsy_values[key];
+
+    if(value) {
+      result[key] = "Yes";
+    }
+    else {
+      result[key] = "No";
+    }
+  }
+}
+
+result_filepath = path.join(__dirname, 'result.json');
+
+fs.writeFileSync(result_filepath, JSON.stringify(result));

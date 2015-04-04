@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+truthy_falsy_values = [
+  true,
+  0,
+  "",
+  false,
+  nil,
+  [],
+  {}
+]
+
+result = {}
+
+truthy_falsy_values.each do |value|
+  if value
+    result[value.to_s] = "Yes"
+  else
+    result[value.to_s] = "No"
+  end
+end
+
+result_file_path = File.expand_path("../result.json", __FILE__)
+
+File.write(result_file_path, JSON.dump(result))
